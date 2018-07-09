@@ -44,4 +44,4 @@ async def on_message(message):
         await client.send_message(message.channel, "<@%s> I don't understand that command" % (userID))
                 
 
-client.run("NDU1NTAxNzg1ODgxMjQ3NzQ0.DgSI4g.1J7l1BCmlnTbB_p37hT38mJI3qE")
+client.run(token)
