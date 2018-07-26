@@ -1,1 +1,1 @@
-worker: scepti-bot.py
+worker: python scepti-bot.py
