@@ -1,1 +1,1 @@
-worker node scepti-bot.js
+worker: scepti-bot.py
