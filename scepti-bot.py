@@ -175,4 +175,4 @@ async def on_message(message):
                 await client.send_message(message.channel, "I am a bot created by <@178255522531639296>, I currently serve no purpose. Please contact Scepti if you would like to suggest a function")
                 
 
-client.run(TOKEN)
+client.run(os.getenv('TOKEN'))
