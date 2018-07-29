@@ -145,9 +145,9 @@ async def on_message(message):
                 if password == key:
                         user = id_to_discorduser(userid)
                         await client.send_message(user, "This is a test message")
-        elif str(455501785881247744) in message.content.lower():
-                userID = message.author.id
-                await client.send_message(message.channel, "Hi there <@%s>" % (userID))
+        #elif str(455501785881247744) in message.content.lower():
+        #        userID = message.author.id
+        #        await client.send_message(message.channel, "Hi there <@%s>" % (userID))
         elif message.content.lower().startswith("?steak"):
                 await client.send_message(message.channel, "There is no steak.")
         elif message.content.lower().startswith("?bet"):
