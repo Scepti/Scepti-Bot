@@ -64,7 +64,7 @@ async def on_message(message):
 		global voters
                 splt = args.split("|", maxsplit=5)
                 if splt[0] == "create":
-			voters = []
+			voters = ['not a person', 'another fake person']
                         if str(178255522531639296) not in message.author.id and str(193217863090307073) not in message.author.id and str(411791229966221322) not in message.author.id:
                                 return
                         optiona = "null"
