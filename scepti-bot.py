@@ -178,7 +178,7 @@ async def on_message(message):
         elif "cookie" in message.content.lower() and not ":cookie:" in message.content.lower():
                 await client.send_message(message.channel, ":cookie:")
         elif message.content.lower().startswith('?help'):
-                await client.send_message(message.channel, "I am a bot created by <@178255522531639296>, I currently serve no purpose. Please contact Scepti if you would like to suggest a function")
+                await client.send_message(message.channel, "<@178255522531639296> was too lazy to rewrite the ?help message, go pester him for whatever you need.")
 
 
 client.run(os.getenv('TOKEN'))
