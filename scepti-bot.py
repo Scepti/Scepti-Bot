@@ -61,10 +61,10 @@ async def on_message(message):
                 global b
                 global c
                 global d
-		global voters
+                global voters
                 splt = args.split("|", maxsplit=5)
                 if splt[0] == "create":
-			voters = []
+                        voters = []
                         if str(178255522531639296) not in message.author.id and str(193217863090307073) not in message.author.id and str(411791229966221322) not in message.author.id:
                                 return
                         optiona = "null"
@@ -121,25 +121,27 @@ async def on_message(message):
                         c = 0
                         d = 0
                 elif splt[0] == "vote":
-			if message.author in voters:
-				await client.send_message(message.channel, "You have already voted")
-				return
-                        if splt[1] == optiona:
-				voters.append(message.author)
+                        if message.author in voters:
+                                await client.send_message(message.channel, "You have already voted")
+                                return
+                        elif splt[1] == optiona:
+                                voters.append(message.author)
                                 a = a + 1
                                 await client.send_message(message.channel, "Your vote has been cast")
-                        if splt[1] == optionb:
-				voters.append(message.author)
+                        elif splt[1] == optionb:
+                                voters.append(message.author)
                                 b = b + 1
                                 await client.send_message(message.channel, "Your vote has been cast")
-                        if splt[1] == optionc:
-				voters.append(message.author)
+                        elif splt[1] == optionc:
+                                voters.append(message.author)
                                 c = c + 1
                                 await client.send_message(message.channel, "Your vote has been cast")
-                        if splt[1] == optiond:
-				voters.append(message.author)
+                        elif splt[1] == optiond:
+                                voters.append(message.author)
                                 d = d + 1
                                 await client.send_message(message.channel, "Your vote has been cast")
+                        else:
+                                await client.send_message(message.channel, "That is not a valid option, please check your spelling and capitalization and try again.")
                 elif len(args) == 0:
                         await client.send_message(message.channel, "To create a poll use: `!poll|create|option 1|option 2` To end a poll and see the results use `!poll|end` and to vote on an existing poll use `!poll|vote|[your option]`")
         elif message.content.lower().startswith("?warn"):
@@ -182,6 +184,6 @@ async def on_message(message):
                 await client.send_message(message.channel, ":cookie:")
         elif message.content.lower().startswith('?help'):
                 await client.send_message(message.channel, "I am a bot created by <@178255522531639296>, I currently serve no purpose. Please contact Scepti if you would like to suggest a function")
-                
+
 
 client.run(os.getenv('TOKEN'))
