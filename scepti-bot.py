@@ -15,11 +15,6 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-        if message.content == "?Overload the system":
-                x = 1
-                while x > 0:
-                        await client.send_message(message.channel, "BREAK EVERYTHING " + str(x))
-                        x = x + 1
         elif message.author.bot:
                 return
         elif message.content.lower().startswith('?custom'):
