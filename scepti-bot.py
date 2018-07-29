@@ -15,7 +15,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-        elif message.author.bot:
+        if message.author.bot:
                 return
         elif message.content.lower().startswith('?custom'):
                 return
