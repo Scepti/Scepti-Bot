@@ -171,9 +171,9 @@ async def on_message(message):
                 a,messagetext = x.split("&")
                 channel = client.get_channel('430710445003898890')
                 await client.send_message(channel, messagetext)
-        elif "bad bot" in message.content.lower():
+        elif "bad bot" in message.content.lower() and "455501785881247744" in message.content:
                 await client.send_message(message.channel, "\:(")
-        elif "good bot" in message.content.lower():
+        elif "good bot" in message.content.lower() and "455501785881247744" in message.content:
                 await client.send_message(message.channel, "Thank you ^_^")
         elif "cookie" in message.content.lower() and not ":cookie:" in message.content.lower():
                 await client.send_message(message.channel, ":cookie:")
