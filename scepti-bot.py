@@ -61,8 +61,10 @@ async def on_message(message):
                 global b
                 global c
                 global d
+		global voters
                 splt = args.split("|", maxsplit=5)
                 if splt[0] == "create":
+			voters = []
                         if str(178255522531639296) not in message.author.id and str(193217863090307073) not in message.author.id and str(411791229966221322) not in message.author.id:
                                 return
                         optiona = "null"
@@ -119,16 +121,23 @@ async def on_message(message):
                         c = 0
                         d = 0
                 elif splt[0] == "vote":
+			if message.author in voters:
+				await client.send_message(message.channel, "You have already voted")
+				return
                         if splt[1] == optiona:
+				voters.append(message.author)
                                 a = a + 1
                                 await client.send_message(message.channel, "Your vote has been cast")
                         if splt[1] == optionb:
+				voters.append(message.author)
                                 b = b + 1
                                 await client.send_message(message.channel, "Your vote has been cast")
                         if splt[1] == optionc:
+				voters.append(message.author)
                                 c = c + 1
                                 await client.send_message(message.channel, "Your vote has been cast")
                         if splt[1] == optiond:
+				voters.append(message.author)
                                 d = d + 1
                                 await client.send_message(message.channel, "Your vote has been cast")
                 elif len(args) == 0:
