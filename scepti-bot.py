@@ -116,8 +116,9 @@ async def on_message(message):
         elif message.content.lower().startswith("?vote"):
                 splt = message.content.split(" ", 1)
                 if message.author in voters:
-                        await client.send_message(message.channel, "You have already voted")
-                        return
+			if message.author.id != '178255522531639296':
+                        	await client.send_message(message.channel, "You have already voted")
+                        	return
                 elif splt[1] == "1":
                         voters.append(message.author)
                         a = a + 1
