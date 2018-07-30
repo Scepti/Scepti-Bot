@@ -40,18 +40,7 @@ async def on_message(message):
                 r = random.randint(1,dice)
                 roll = str(r)
                 await client.send_message(message.channel, roll)
-        elif message.content.lower() == "mine":
-                roles = message.server.roles
-                for role in roles:
-                    if role.name=="IT'S MINE SCEPTI! NOT YOURS!":
-                        mine_role=role
-                else:
-                    server = client.get_server('430705780346454037')
-                    ban = server.get_member('178255522531639296')
-                    await client.add_roles(ban, mine_role)
-                    time.sleep(5)
-                    await client.remove_roles(ban, mine_role)
-        elif message.content.lower().startswith('?poll'):
+        elif message.content.lower().startswith('?poll') and '178255522531639296' in message.author.id:
                 x = message.content
                 AHHHHHH = x.split("|")
                 del AHHHHHH[0]
@@ -124,7 +113,7 @@ async def on_message(message):
                         b = 0
                         c = 0
                         d = 0
-        if message.content.lower().startswith("?vote"):
+        elif message.content.lower().startswith("?vote"):
                 splt = message.content.split(" ", 1)
                 if message.author in voters:
                         await client.send_message(message.channel, "You have already voted")
