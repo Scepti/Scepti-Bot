@@ -17,7 +17,7 @@ async def on_ready():
 async def on_message(message):
         if message.author.bot:
                 return
-        elif message.content.lower().startswith('!wipe') and '411791229966221322' in message.author.id:
+        elif message.content.lower().startswith('?wipe') and '411791229966221322' in message.author.id:
                 try:
                         count=int(args)
                 except:
