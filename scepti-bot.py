@@ -114,11 +114,11 @@ async def on_message(message):
                         c = 0
                         d = 0
         elif message.content.lower().startswith("?vote"):
-                splt = message.content.split(" ", 1)
+                splt = message.content.split(" ", 2)
                 if message.author in voters:
-			if message.author.id != '178255522531639296':
-                        	await client.send_message(message.channel, "You have already voted")
-                        	return
+                        if message.author.id != '178255522531639296':
+                                await client.send_message(message.channel, "You have already voted")
+                                return
                 elif splt[1] == "1":
                         voters.append(message.author)
                         a = a + 1
@@ -177,5 +177,6 @@ async def on_message(message):
                 await client.send_message(message.channel, ":cookie:")
         elif message.content.lower().startswith('?help'):
                 await client.send_message(message.channel, "I am a bot created by <@178255522531639296>, I currently serve no purpose. Please contact Scepti if you would like to suggest a function")
+
 
 client.run(os.getenv('TOKEN'))
