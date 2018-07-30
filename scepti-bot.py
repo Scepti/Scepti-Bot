@@ -17,7 +17,13 @@ async def on_ready():
 async def on_message(message):
         if message.author.bot:
                 return
-        elif 'https://' in message.content.lower() and '411791229966221322' in message.author.id and '473314659093708821' in message.channel.id:
+        elif message.content.lower().startswith('!wipe') and '411791229966221322' in message.author.id:
+                try:
+                        count=int(args)
+                except:
+                        count=100
+                await client.purge_from(message.channel, limit=count)
+        elif message.content.lower().startswith('https://') and '411791229966221322' in message.author.id and '473314659093708821' in message.channel.id:
                 await client.purge_from(message.channel, limit=1)
                 await client.send_message(message.channel, message.content)
         elif message.content.lower().startswith('?custom'):
