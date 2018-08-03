@@ -10,13 +10,37 @@ Client = discord.Client()
 client = commands.Bot(command_prefix = "?")
 @client.event
 async def on_ready():
-	print("Ready") 
+	print("Ready")
 
 
 @client.event
 async def on_message(message):
+        if '455501785881247744' in message.author.id and '473713856192053248' in message.channel.id:
+                await client.pin_message(message)
         if message.author.bot:
                 return
+        elif message.content.lower().startswith('?invis'):
+                roles = message.server.roles
+                for role in roles:
+                        if role.name=='Not Cancel':
+                                invis_role=role
+
+                if any([role == invis_role for role in message.author.roles]):
+                        await client.remove_roles(message.author, invis_role)
+                else:
+                        await client.add_roles(message.author, invis_role)
+        elif message.content.lower().startswith('!giveaway'):
+                start, time, winners, prize = messge.content.split(" ")
+        elif message.content.lower().startswith('?store'):
+                command,data=message.content.split("?store ")
+                storage = client.get_channel('473713856192053248')
+                await client.purge_from(storage, limit=2)
+                await client.send_message(storage, data)
+                await client.send_message(message.channel, '"' + data + '"' + " was succesfully stored")
+        elif message.content.lower().startswith('?load'):
+                storage = client.get_channel('473713856192053248')
+                data = client.pins_from(storage)
+                await client.send_message(message.channel, data)
         elif message.content.lower().startswith('?wipe') and '411791229966221322' in message.author.id:
                 try:
                         count=int(args)
@@ -180,6 +204,3 @@ async def on_message(message):
 
 
 client.run("NDU1NTAxNzg1ODgxMjQ3NzQ0.Dj-tPw.9NZkGp5arLmOAqKL4gdOM-VQE9A")
-
-
-client.run(os.getenv('TOKEN'))
